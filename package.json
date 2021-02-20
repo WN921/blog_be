@@ -1,0 +1,39 @@
+{
+  "name": "blog_be",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "commit": "git-cz",
+    "start": "node bin/www",
+    "dev": "cross-env NODE_DEV=dev ./node_modules/.bin/nodemon --inspect=9229 bin/www",
+    "prd": "cross-env NODE_DEV=prd   pm2 start bin/www",
+    "test": "cross-env NODE_DEV=test jest --runInBand --forceExit --colors --detectOpenHandles"
+  },
+  "dependencies": {
+    "ajv": "^6.12.6",
+    "co": "^4.6.0",
+    "debug": "^4.2.0",
+    "git-cz": "^4.7.6",
+    "jade": "~1.11.0",
+    "koa": "^2.13.0",
+    "koa-body": "^4.2.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-convert": "^2.0.0",
+    "koa-generic-session": "^2.1.1",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.2.1",
+    "koa-onerror": "^4.1.0",
+    "koa-redis": "^4.0.1",
+    "koa-router": "^10.0.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^3.1.0",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5",
+    "supertest": "^6.0.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.6"
+  }
+}
