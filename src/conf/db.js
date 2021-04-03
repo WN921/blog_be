@@ -11,7 +11,7 @@ let REDIS_CONF = {
 }
 let MYSQL_CONF = {
     host: 'localhost',
-    user: 'root',
+    user: 'koa2_blog_db',
     password: '1244',
     post: '3306',
     database: 'koa2_blog_db'
@@ -24,7 +24,7 @@ if (isProd) {
     },
     MYSQL_CONF = {
         host: 'localhost',
-        user: 'root',
+        user: 'koa2_blog_db',
         password: '1244',
         post: '3306',
         database: 'koa2_blog_db'
