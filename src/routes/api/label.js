@@ -8,7 +8,7 @@ const router = require('koa-router')();
 const { addLabel, getLabelList } = require('../../controller/label');
 router.prefix('/api/label');
 
-//增加博客
+//增加label
 router.post('/', async (ctx, next) => {
     const { labelName, color } = ctx.request.body;
     ctx.body = await addLabel({ labelName, color });

@@ -76,9 +76,8 @@ async function updateBlog({ blogId, userId, userName, MDStr, MDFilePath, title, 
             abstract
         });
         let blogInstance = await getBlogInfo(blogId);
-        if (labelList) {
-            updateLabelsFotBlog(blogInstance, labelList);
-        }
+        await updateLabelsFotBlog(blogInstance, labelList);
+
         return new SuccessModel(blogInstance.dataValues);
     } catch (ex) {
         console.error(ex.message, ex.stack);
@@ -119,14 +118,14 @@ async function deleteBlog(id, MDFilePath) {
  */
 async function getSpecifiedBlog(id) {
 
-    try{
+    try {
         const result = await getBlogInfo(id);
-        if(!result){
+        if (!result) {
             return new ErrorModel(getSpecifiedBlogFailInfo);
         }
         result.dataValues.content = await fs.readFile(result.MDFilePath, { encoding: 'utf8' });
         return new SuccessModel(result.dataValues);
-    }catch(ex){
+    } catch (ex) {
         console.error(ex.message, ex.stack);
         return new ErrorModel(getSpecifiedBlogFailInfo);
     }
@@ -174,7 +173,7 @@ async function countBlogById(userId) {
         const res = await countBlog({
             userId
         });
-        return new SuccessModel({count:res});
+        return new SuccessModel({ count: res });
     } catch (ex) {
         console.error(ex.message, ex.stack);
         return new ErrorModel(countBlogFailInfo);

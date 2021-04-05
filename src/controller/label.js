@@ -100,19 +100,17 @@ async function updateLabelsFotBlog(blog, labelList) {
     try {
         //删除现有labels
         const curlabels = await blog.getLabels();
-        curlabels.forEach(async(item) => {
-            await blog.removeLabel(item);
-        })
+        for(let label of curlabels){
+            console.log(label);
+            await blog.removeLabel(label);
+        }
 
         //将labelList中新的标签加入
         labelList.sort();
-        labelList.forEach(async(item) => {
-            if(!await blog.hasLabel(item)){
-                await blog.addLabel(item);
-            }
-        });
 
-
+        for(let label of labelList){
+            await blog.addLabel(label);
+        }
     } catch (ex) {
         console.error(ex.message, ex.stack);
         return new ErrorModel(getLabelListFailInfo);

@@ -4,6 +4,7 @@ const CORS = async (ctx, next) => {
     'http://127.0.0.1:3000',
     'http://1.15.125.162',
     'http://1.15.125.162:80',
+    'http://1.15.125.162:3000',
     'http://1.15.125.162:3090',
     'http://localhost:3000',
     'http://www.nangua3.top',

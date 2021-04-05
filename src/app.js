@@ -46,6 +46,14 @@ app.use(
         store: redisStore({
             all: `${REDIS_CONF.host}:${REDIS_CONF.port}`,
         }),
+        // cookie: {
+        //     path: '/',
+        //     httpOnly: true,
+        //     maxAge: 24 * 60 * 60 * 1000 ,//one day in ms,
+        //     overwrite: true,
+        //     signed: true,
+        //     sameSite: "strict"
+        //   }
     })
 );
 
