@@ -82,8 +82,13 @@ module.exports = {
         errno: 10016,
         message: '获取标签列表失败'
     },
-    countBlogFailInfo:{
+    deleteLabelFailInfo:{
         errno: 10017,
+        message: '删除标签列表失败'
+    },
+    countBlogFailInfo:{
+        errno: 10018,
         message: '统计指定用户的博客数量出错'
     }
+
 }

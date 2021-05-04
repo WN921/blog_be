@@ -17,34 +17,19 @@ async function createLabel({ labelName, color}) {
     return result.dataValues;
 }
 
-// /**
-//  * 根据博客id，查找并返回博客的相关信息
-//  * @param {number} id 博客id
-//  */
-// async function getBlogInfo(id) {
-//     const whereOpt = { id };
-//     const result = await Blog.findOne({
-//         where: whereOpt
-//     })
-//     if (result == null) {
-//         //未找到
-//         return result;
-//     }
-//     //统一返回数据
-//     return result.dataValues;
-// }
 
-// /**
-//  * 在数据库中删除指定博客的记录
-//  * @param {number} id 博客id
-//  */
-// async function destroyBlog(id){
-//     const whereOpt = { id };
-//     const result = await Blog.destroy({
-//         where: whereOpt
-//     })
-//     return result;
-// }
+
+/**
+ * 在数据库中删除指定博客的记录
+ * @param {number} id 博客id
+ */
+async function destroyLabel(id){
+    const whereOpt = { id };
+    const result = await Label.destroy({
+        where: whereOpt
+    })
+    return result;
+}
 
 /**
  * 批量获取标签
@@ -62,5 +47,6 @@ async function getBatchLabelInfo(){
 
 module.exports = {
     createLabel,
-    getBatchLabelInfo
+    getBatchLabelInfo,
+    destroyLabel
 }

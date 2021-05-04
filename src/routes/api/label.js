@@ -5,7 +5,8 @@
 
 const router = require('koa-router')();
 
-const { addLabel, getLabelList } = require('../../controller/label');
+const { addLabel, deleteLabel, getLabelList } = require('../../controller/label');
+const loginCheck = require('../../middlerwares/loginCheck');
 router.prefix('/api/label');
 
 //增加label
@@ -14,20 +15,13 @@ router.post('/', async (ctx, next) => {
     ctx.body = await addLabel({ labelName, color });
 })
 
-// //删除博客
-// router.delete('/:blogId', loginCheck, ownCheck, async (ctx, next) => {
-//     const { MDFilePath } = ctx.blogInfo;
-//     const id = ctx.params.blogId;
-//     ctx.body = await deleteBlog(id, MDFilePath);
-// })
+//删除博客
+router.delete('/:labelId', loginCheck, async (ctx, next) => {
+    const id = ctx.params.labelId;
+    ctx.body = await deleteLabel(id);
+})
 
-// //根据参数获取指定博客的详情
-// router.get('/:blogId', async (ctx, next) => {
-//     const id = Number(ctx.params.blogId);
-//     ctx.body = await getSpecifiedBlog(id);
-// })
-
-//根据参数批量获取博客
+//获取现存的所有
 router.get('/', async (ctx, next) => {
     ctx.body = await getLabelList();
 })
